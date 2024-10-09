@@ -26,6 +26,18 @@ public class User {
     @Temporal(TemporalType.DATE)
     private Date birthday;
 
+    public User(Long user_id, String name, String email, String password, Role role, Date birthday) {
+        this.user_id = user_id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.birthday = birthday;
+    }
+
+    public User() {
+
+    }
 
 
     public Long getId() {
