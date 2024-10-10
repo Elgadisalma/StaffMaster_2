@@ -19,6 +19,17 @@
     <button type="submit">Ajouter un employé</button>
 </form>
 
+<form action="offre" method="get">
+    <input type="hidden" name="action" value="ajout">
+    <button type="submit">Ajouter une offre</button>
+</form>
+
+<form action="offre" method="get">
+    <input type="hidden" name="action" value="list">
+    <button type="submit">Afficher les offres</button>
+</form>
+
+
 
 
 </body>
