@@ -35,11 +35,11 @@ public class EmployeeServlet extends HttpServlet {
             case "delete":
                 deleteEmployee(request, response);
                 break;
-            case "ajout":
+            case "ajoutEmployee":
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/view/addEmployee.jsp");
                 dispatcher.forward(request, response);
                 break;
-            case "list":
+            case "listEmployees":
                 List<Employee> employees = employeeDao.getEmployees();
                 request.setAttribute("employees", employees);
                 request.getRequestDispatcher("/view/listEmployees.jsp").forward(request, response);

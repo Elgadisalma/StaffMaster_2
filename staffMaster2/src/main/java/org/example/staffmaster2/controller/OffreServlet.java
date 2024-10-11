@@ -29,11 +29,11 @@ public class OffreServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action) {
-            case "ajout":
+            case "ajoutOffre":
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/view/addOffre.jsp");
                 dispatcher.forward(request, response);
                 break;
-            case "list":
+            case "listOffres":
                 List<Offre> offres = offreDao.getOffres();
                 System.out.println(offres);
                 request.setAttribute("offres", offres);
