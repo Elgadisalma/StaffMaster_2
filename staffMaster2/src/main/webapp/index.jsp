@@ -24,6 +24,11 @@
 </form>
 
 
+<h2>Candidature</h2>
+<form action="condidature" method="get">
+    <button type="submit">Voir les condidatures</button>
+</form>
+
 
 
 </body>
