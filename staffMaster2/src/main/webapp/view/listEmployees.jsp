@@ -41,6 +41,7 @@
                 <div class="df">
                     <a href="employee?action=edit&id=${employee.id}" class="btn-edit">Modifier</a>
                     <a href="employee?action=delete&id=${employee.id}" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employé ?');">Supprimer</a>
+                    <a href="employee?action=calcul&id=${employee.id}" class="btn-edit">calcul des allocations</a>
                 </div>
             </td>
         </tr>
