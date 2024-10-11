@@ -44,6 +44,9 @@ public class EmployeeServlet extends HttpServlet {
                 request.setAttribute("employees", employees);
                 request.getRequestDispatcher("/view/listEmployees.jsp").forward(request, response);
                 break;
+            case "calcul":
+                calculEmployee(request, response);
+                break;
             default:
                 response.sendError(HttpServletResponse.SC_NOT_FOUND, "Action not found");
         }
@@ -145,4 +148,48 @@ public class EmployeeServlet extends HttpServlet {
             response.sendRedirect("index.jsp");
         }
     }
+
+    public void calculEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+
+        if (id != null) {
+            Employee employee = employeeDao.getEmployeeById(Integer.parseInt(id));
+
+            int nEnfants = employee.getNumChilds();
+            double salaire = employee.getSalaire();
+
+            double allocations = calculerAllocationsFamiliales(nEnfants, salaire);
+
+            request.setAttribute("employee", employee);
+            request.setAttribute("allocations", allocations);
+
+            request.getRequestDispatcher("/view/allocations.jsp").forward(request, response);
+        }
+    }
+
+    private double calculerAllocationsFamiliales(int nEnfants, double salaire) {
+        double allocations = 0;
+
+        if (salaire < 6000) {
+            for (int i = 1; i <= nEnfants && i <= 6; i++) {
+                if (i <= 3) {
+                    allocations += 300;
+                } else {
+                    allocations += 150;
+                }
+            }
+        }
+
+        else if (salaire > 8000) {
+            for (int i = 1; i <= nEnfants && i <= 6; i++) {
+                if (i <= 3) {
+                    allocations += 200;
+                } else {
+                    allocations += 110;
+                }
+            }
+        }
+        return allocations;
+    }
+
 }
