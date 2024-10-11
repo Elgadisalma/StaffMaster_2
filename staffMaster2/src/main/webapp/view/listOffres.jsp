@@ -25,6 +25,9 @@
             <td>${offre.description}</td>
             <td>${offre.dateValidite}</td>
             <td>${offre.dateFin}</td>
+            <td>
+                <a href="offre?action=postule&id=${offre.offre_id}" class="btn-edit">Postuler</a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>

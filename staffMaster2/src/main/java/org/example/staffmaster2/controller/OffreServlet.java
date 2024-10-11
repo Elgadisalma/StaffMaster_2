@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.staffmaster2.dao.OffreDao;
 import org.example.staffmaster2.entity.Offre;
-import org.example.staffmaster2.entity.Role;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -38,6 +37,14 @@ public class OffreServlet extends HttpServlet {
                 System.out.println(offres);
                 request.setAttribute("offres", offres);
                 request.getRequestDispatcher("/view/listOffres.jsp").forward(request, response);
+                break;
+            case "postule":
+                String id = request.getParameter("id");
+                long offreId = Long.parseLong(id);
+                Offre offre = offreDao.getOffreById(offreId);
+                request.setAttribute("offre", offre);
+
+                request.getRequestDispatcher("/view/candidature.jsp").forward(request, response);
                 break;
             default:
                 response.sendError(HttpServletResponse.SC_NOT_FOUND, "Action not found");

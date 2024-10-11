@@ -3,6 +3,7 @@ package org.example.staffmaster2.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.example.staffmaster2.config.EntityManagerFactorySingleton;
+import org.example.staffmaster2.entity.Employee;
 import org.example.staffmaster2.entity.Offre;
 
 import java.util.List;
@@ -42,6 +43,21 @@ public class OffreDao {
         }
         return offres;
     }
+
+    public Offre getOffreById(Long id) {
+        EntityManager em = null;
+        Offre offre = null;
+        try {
+            em = emf.createEntityManager();
+            offre = em.find(Offre.class, id);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return offre;
+    }
+
 
 
 }
