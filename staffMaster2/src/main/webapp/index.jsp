@@ -5,28 +5,22 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<h2>Ajouter un Employe</h2>
+<h2>Employee </h2>
 <form action="employee" method="get">
-    <input type="hidden" name="action" value="list">
-    <button type="submit">Afficher les employés</button>
+    <select name="action">
+        <option value="listEmployees">Afficher les employés</option>
+        <option value="ajoutEmployee">Ajouter un employé</option>
+    </select>
+    <button type="submit">Exécuter</button>
 </form>
 
-<form action="employee" method="get">
-    <input type="hidden" name="action" value="ajout">
-    <button type="submit">Ajouter un employé</button>
-</form>
-
+<h2>Offre </h2>
 <form action="offre" method="get">
-    <input type="hidden" name="action" value="ajout">
-    <button type="submit">Ajouter une offre</button>
-</form>
-
-<form action="offre" method="get">
-    <input type="hidden" name="action" value="list">
-    <button type="submit">Afficher les offres</button>
+    <select name="action">
+        <option value="ajoutOffre">Ajouter une offre</option>
+        <option value="listOffres">Afficher les offres</option>
+    </select>
+    <button type="submit">Exécuter</button>
 </form>
 
 
