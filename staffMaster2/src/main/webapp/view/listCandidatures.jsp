@@ -1,36 +1,42 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Liste des Candidatures</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css">
 </head>
 <body>
-<h2>Liste des Candidatures</h2>
+<div class="container">
+    <h2>Liste des Candidatures</h2>
 
-<form method="get" action="condidature">
-    <input type="text" name="competance" placeholder="Rechercher par compétence" value="${param.competance}">
-    <button type="submit">Rechercher</button>
-</form>
+    <form method="get" action="condidature" class="form-search">
+        <label for="competance" class="form-label">Rechercher par compétence :</label>
+        <input type="text" id="competance" name="competance" placeholder="Compétence" value="${param.competance}" class="input-field">
+        <input type="submit" value="Rechercher" class="btn-submit">
+    </form>
 
-<table class="candidature-table">
-    <thead>
-    <tr>
-        <th>Email</th>
-        <th>Compétence</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="candidature" items="${candidatures}">
+    <table class="table">
+        <thead>
         <tr>
-            <td>${candidature.email}</td>
-            <td>${candidature.competance}</td>
-            <td>
-                <a href="condidature?action=confirm&id=${candidature.condidature_id}" class="btn-edit">Confirmer</a>
-            </td>
+            <th>Email</th>
+            <th>Compétence</th>
+            <th>Actions</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+        <c:forEach var="candidature" items="${candidatures}">
+            <tr>
+                <td>${candidature.email}</td>
+                <td>${candidature.competance}</td>
+                <td>
+                    <a href="condidature?action=confirm&id=${candidature.condidature_id}" class="btn-edit">Confirmer</a>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
