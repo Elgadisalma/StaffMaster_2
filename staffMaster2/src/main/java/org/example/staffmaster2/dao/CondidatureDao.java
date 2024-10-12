@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.example.staffmaster2.config.EntityManagerFactorySingleton;
 import org.example.staffmaster2.entity.Candidature;
+import org.example.staffmaster2.entity.Employee;
 
 import java.util.List;
 
@@ -40,5 +41,40 @@ public class CondidatureDao {
             }
         }
         return candidatures;
+    }
+
+    public Candidature getCandidatureById(Long id) {
+        EntityManager em = null;
+        Candidature condidature = null;
+        try {
+            em = emf.createEntityManager();
+            condidature = em.find(Candidature.class, id);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return condidature;
+    }
+
+    public void updateCandidature(Candidature candidature) {
+        EntityManager em = null;
+        try {
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+
+            em.merge(candidature);
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (em != null) {
+                em.getTransaction().rollback();
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 }
