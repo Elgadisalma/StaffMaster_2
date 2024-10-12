@@ -26,9 +26,13 @@
 
 <h2>Candidature</h2>
 <form action="condidature" method="get">
+    <input type="hidden" name="action" value="listCandidature">
     <button type="submit">Voir les condidatures</button>
 </form>
 
+<%--<form method="get" action="testEmail">--%>
+<%--    <button type="submit">test email</button>--%>
+<%--</form>--%>
 
 
 </body>

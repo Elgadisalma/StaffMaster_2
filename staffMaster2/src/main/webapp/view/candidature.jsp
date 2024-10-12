@@ -6,7 +6,7 @@
 <body>
 <h2>Postuler à l'Offre : ${offre.title}</h2>
 
-<form action="condidature" method="post">
+<form action="condidature?action=add" method="post">
     <input type="hidden" name="offreId" value="${offre.offre_id}">
     <label for="email">Email :</label>
     <input type="email" id="email" name="email" required><br/>

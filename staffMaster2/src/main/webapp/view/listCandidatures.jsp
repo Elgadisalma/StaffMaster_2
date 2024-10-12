@@ -24,7 +24,9 @@
         <tr>
             <td>${candidature.email}</td>
             <td>${candidature.competance}</td>
-
+            <td>
+                <a href="condidature?action=confirm&id=${candidature.condidature_id}" class="btn-edit">Confirmer</a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
