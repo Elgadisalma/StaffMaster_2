@@ -85,7 +85,7 @@ public class CondidatureServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            request.getRequestDispatcher("/view/index.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/condidature?action=listCandidature");
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Candidature non trouvée");
         }

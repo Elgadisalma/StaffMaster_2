@@ -12,16 +12,18 @@
     <h2>Liste des Candidatures</h2>
 
     <form method="get" action="condidature" class="form-search">
-        <label for="competance" class="form-label">Rechercher par compétence :</label>
-        <input type="text" id="competance" name="competance" placeholder="Compétence" value="${param.competance}" class="input-field">
+        <input type="hidden" name="action" value="listCandidature">
+        <label for="competance" class="form-label">Rechercher par competence :</label>
+        <input type="text" id="competance" name="competance" placeholder="Competence" value="${param.competance}" class="input-field">
         <input type="submit" value="Rechercher" class="btn-submit">
     </form>
+
 
     <table class="table">
         <thead>
         <tr>
             <th>Email</th>
-            <th>Compétence</th>
+            <th>Competence</th>
             <th>Actions</th>
         </tr>
         </thead>

@@ -16,7 +16,7 @@
         <tr>
             <th>Titre</th>
             <th>Description</th>
-            <th>Date de validité</th>
+            <th>Date de validite</th>
             <th>Date de fin</th>
             <th>Actions</th>
         </tr>

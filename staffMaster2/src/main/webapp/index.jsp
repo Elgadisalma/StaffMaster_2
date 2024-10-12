@@ -29,7 +29,7 @@
     </form>
 
     <h3>Candidatures</h3>
-    <form action="candidature" method="get" class="form-search">
+    <form action="condidature" method="get" class="form-search">
         <input type="hidden" name="action" value="listCandidature">
         <button type="submit" class="btn-submit">Voir les candidatures</button>
     </form>
