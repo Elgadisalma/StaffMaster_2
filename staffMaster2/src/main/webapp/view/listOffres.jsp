@@ -1,37 +1,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Liste des Offres</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css">
 </head>
 <body>
-<h2>Liste des Offres</h2>
+<div class="offre-container">
+    <h2>Liste des Offres</h2>
 
-<table class="offre-table">
-    <thead>
-    <tr>
-        <th>Titre</th>
-        <th>Description</th>
-        <th>Date de validite</th>
-        <th>Date de fin</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="offre" items="${offres}">
-
+    <table class="offre-table">
+        <thead>
         <tr>
-            <td>${offre.title}</td>
-            <td>${offre.description}</td>
-            <td>${offre.dateValidite}</td>
-            <td>${offre.dateFin}</td>
-            <td>
-                <a href="offre?action=postule&id=${offre.offre_id}" class="btn-edit">Postuler</a>
-            </td>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Date de validité</th>
+            <th>Date de fin</th>
+            <th>Actions</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+        <c:forEach var="offre" items="${offres}">
+            <tr>
+                <td>${offre.title}</td>
+                <td>${offre.description}</td>
+                <td>${offre.dateValidite}</td>
+                <td>${offre.dateFin}</td>
+                <td>
+                    <a href="offre?action=postule&id=${offre.offre_id}" class="btn-edit">Postuler</a>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
